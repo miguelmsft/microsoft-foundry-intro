@@ -1,9 +1,9 @@
 ---
 orchestrator_version: 1
 started_at: 2026-07-14T01:12:16Z
-last_updated: 2026-07-14T03:58:00Z
-current_phase: slides
-current_gate: running
+last_updated: 2026-07-14T04:10:00Z
+current_phase: done
+current_gate: done
 ---
 
 # Presentation Status
@@ -33,11 +33,21 @@ current_gate: running
 | Research: T5 business value | ✅ done | research/2026-07-13-web-foundry-business-value-outcomes.md | ✅ APPROVED round 1 (only 🟢 minors) |
 | Content | ✅ done | presentation-content.md | ✅ APPROVED v2, 46/50 (round 2) |
 | Slides | ✅ done | presentation/2026-07-14T0227-v1-microsoft-foundry/ | ✅ APPROVED v1 round 1 (27 slides: 21 clean, 6 with only 🟢 small-text; 0 🔴/🟡) |
-| Deploy: GitHub Pages | 🔄 in progress | miguelmsft/microsoft-foundry-intro | building with subpath base → push main → gh-pages → enable Pages |
+| Deploy: GitHub Pages | ✅ done | https://miguelmsft.github.io/microsoft-foundry-intro/ | LIVE & verified (root+slides+assets 200, subpath base correct); repo public, main+gh-pages pushed |
 
 ## Open items for user
 
-- [ ] (Gate 2) After research approved: confirm content preferences + research-file allowlist, then proceed to content. — NOTE: user authorized auto-proceed (no pause).
+- [x] (Gate 2) Auto-passed per user authorization.
+- ✅ All workflow phases complete. Optional future polish: the slide reviewer noted 6 🟢 minor "small text" observations on a few visual/card slides (non-blocking) — a v2 slide build could enlarge those if desired. Time-sensitive facts (preview/GA status, model counts) should be reconfirmed against official Microsoft sources right before presenting.
+
+## Final summary
+
+- **Live presentation:** https://miguelmsft.github.io/microsoft-foundry-intro/
+- **Repository (public):** https://github.com/miguelmsft/microsoft-foundry-intro
+- **Local preview:** `cd "presentation/2026-07-14T0227-v1-microsoft-foundry"; npm install; npm run dev` → http://localhost:5173/
+- **Deck:** 27 slides, 7 sections, ~30 min + Q&A; capability-by-capability (Models → Agents & Tools → Foundry IQ → Trust) with business value woven into each; no classic-Foundry/hubs framing; no pricing.
+- **Review rounds consumed:** Research T1 1 round, T2 2, T3 2, T4 2, T5 1; Content 2 rounds; Slides 1 round. All ended in ✅ APPROVED.
+- **Models:** researchers/creators/builder on claude-opus-4.8; all reviewers on gpt-5.5.
 
 ## Content-phase guardrails (extracted from approved reviews — apply when briefing content-creator)
 
@@ -66,3 +76,5 @@ current_gate: running
 - 2026-07-14T02:54:00Z — **Content v1 review = NEEDS REWORK (40/50)** — strong draft, few must-fixes. 🔴 Critical: cost/pricing/ROI references lingered in slide 26-27 SPEAKER NOTES (reviewer correctly enforced no-pricing even in notes). 🟡 Important: define acronyms on first on-screen use (Slide 5 CLI, Slide 19 RAG, Slide 23 CISO) + write out "Microsoft-commissioned" on Slide 19. 🟢: soften Slide 14 "no hand-coded routing" overclaim; frontmatter 30-45→"30 min + Q&A"; split long speaker-note paragraphs. Fidelity spot-checks otherwise PASSED (1,900+ used, Commerzbank/Forrester accurate & attributed, no legacy framing, value woven per capability, coverage 5/5). Sent to content-creator for v2 revision (Opus 4.8) via write_agent.
 - 2026-07-14T03:00:00Z — **Content v2 = ✅ APPROVED (46/50, round 2).** Content phase COMPLETE. Reviewer's own full-file scan confirmed zero prohibited pricing/ROI/dollar content (only allowed source-verbatim "costly reactive incidents" remains); acronyms + Forrester attribution verified; no fidelity/legacy/slide-count regressions. **Gate 3 auto-passed** per user authorization. **Slides phase STARTED** — presentation-slide-builder launched (Opus 4.8) to build all 27 slides (Vite + GSAP, 4 themes, admin panel), skip images cleanly (no image folder), and verify BOTH dev server and production `vite build` (needed for GitHub Pages). Left Vite base at '/' for review; subpath base set at deploy time. Next: slide-reviewer (Playwright MCP) loop up to 3 rounds, then GitHub Pages publish.
 - 2026-07-14T03:26:00Z — **Slides built: 27/27** in presentation/2026-07-14T0227-v1-microsoft-foundry/. Production `vite build` ✅ (dist/: index 1.72kB, css 36.87kB, js 82.94kB, 27 slide HTMLs). Dev server live at http://localhost:5173/ (verified HTTP 200 from orchestrator). App loads slides via import.meta.env.BASE_URL, base left at '/' (subpath set at deploy). 13 hand-craft visuals rendered as styled HTML/SVG; builder's own Playwright pass reported zero overflow/JS errors. Deploy prep done: repo `microsoft-foundry-intro` available, personal gh auth OK. **GPT-5.5 presentation-slide-reviewer launched** (Playwright MCP) against localhost:5173 — screenshots to the folder's review-screenshots/, review to agent-reviews/2026-07-13-presentation-slide-reviewer-microsoft-foundry-v1.md.
+- 2026-07-14T03:58:00Z — **Slides = ✅ APPROVED (v1, round 1).** Playwright visual review: 27 slides, 21 clean, 6 with only 🟢 minor small-text notes, 0 🔴/0 🟡. Slides phase COMPLETE. **Gate 3 already auto-passed; proceeding to deploy per user authorization.** DEPLOY started: rebuilt with `vite build --base=/microsoft-foundry-intro/` (dist/ index.html now references /microsoft-foundry-intro/assets/…, 27 slides copied). Removed leftover root/research temp artifacts (fetch.py, search.py, mslearn_mcp.py, pages/, research-cache/, __pycache__/, test-results/, research/_cache, research/_mcp.py) so only deliverables ship. Added .gitignore + README (with live URL). git init → commit (59 files, no node_modules/dist).
+- 2026-07-14T04:10:00Z — **DEPLOY COMPLETE — presentation is LIVE.** Created public repo https://github.com/miguelmsft/microsoft-foundry-intro; pushed `main` (full project) and published `dist/` (+ `.nojekyll`) to `gh-pages`. GitHub Pages serving from gh-pages root. Verified live: root, slide-001, slide-008, slide-027, and JS/CSS bundles all HTTP 200 at the /microsoft-foundry-intro/ subpath; slide payloads contain correct real content (title slide, "1,900+ curated models" on slide 8 — guardrail held end-to-end, Q&A close on slide 27); index title = "Microsoft Foundry: An Introduction". CHALLENGE resolved: earlier T2-researcher SAML-SSO `gh` block did NOT affect personal repo creation (as predicted). One inconclusive sub-agent: a live Playwright smoke-test agent returned no output (Playwright likely unavailable to it) — fell back to thorough HTTP verification instead of relaunching. Cleanup: stopped local dev server (PID on :5173), removed temp deploy folders. **Live URL: https://miguelmsft.github.io/microsoft-foundry-intro/** · **ALL PHASES DONE.**
