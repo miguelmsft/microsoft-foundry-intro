@@ -1,0 +1,37 @@
+<!-- HAND-CRAFTED OVERRIDE — do not regenerate -->
+<article class="slide" data-number="13" data-type="boxes" data-section="Agents &amp; Tools">
+  <div class="slide-bg"></div>
+  <div class="slide-content">
+    <h1 class="slide-title">Tools: connecting AI to real work</h1>
+    <p class="slide-lead">Tools are how an agent stops being a demo and starts doing real work.</p>
+    <div class="tool-grid cols-3">
+      <div class="tool-card">
+        <div class="tool-card-icon">&#128295;</div>
+        <div class="tool-card-title">Built-in tools</div>
+        <div class="tool-card-body">Web search, code interpreter, and file search &mdash; ready to switch on.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">&#128187;</div>
+        <div class="tool-card-title">Your own code</div>
+        <div class="tool-card-body">Function calling and your own APIs, exposed via OpenAPI.</div>
+      </div>
+      <div class="tool-card tone-accent">
+        <div class="tool-card-icon">&#128268;</div>
+        <div class="tool-card-title">Enterprise systems</div>
+        <div class="card-stat">1,400+ connectors</div>
+        <div class="tool-card-body">Ready-made links to SAP, Salesforce, Dynamics 365, and more.</div>
+      </div>
+    </div>
+    <div class="callout">
+      <span class="router-tag">Open standard &mdash; MCP</span>
+      The <strong>Model Context Protocol</strong> lets you build a tool once and reuse it across many agents. Every agent acts with its own <strong>scoped identity</strong>.
+    </div>
+  </div>
+  <aside class="speaker-notes" hidden>
+    <p>Plain framing: "An agent on its own uses a model to generate text, but tools let it take action &mdash; searching the web, running code, querying your data, or calling your own APIs."</p>
+    <p>Three families: built-in tools (some, like web search and memory, are in preview &mdash; mention lightly); your own capabilities via function calling or OpenAPI; and pre-built connectors into enterprise systems. Azure Logic Apps brings "1,400+ built-in connectors" to systems like SAP, Salesforce, and Dynamics 365 &mdash; often with no custom code.</p>
+    <p>Define MCP once: the <strong>Model Context Protocol</strong> is an open standard for how apps expose tools to AI models. Because it's open, a tool built once can be reused by many agents and runtimes &mdash; less glue code, faster rollout.</p>
+    <p>Agents plug into the systems a business already runs, and each agent acts with its own scoped identity and permissions rather than shared credentials &mdash; so automation is real <em>and</em> controlled.</p>
+    <p><strong>Transition:</strong> One agent is powerful; sometimes you need several working together.</p>
+  </aside>
+</article>

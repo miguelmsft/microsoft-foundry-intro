@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="github-cosmos">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microsoft Foundry: An Introduction</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%230d1117'/%3E%3Ctext%20x='16'%20y='23'%20font-family='Segoe%20UI,sans-serif'%20font-size='20'%20font-weight='700'%20text-anchor='middle'%20fill='%2358a6ff'%3EF%3C/text%3E%3C/svg%3E" />
+
+  <!-- Themes first, then core, components, admin, print -->
+  <script type="module" crossorigin src="/microsoft-foundry-intro/assets/index-nDzmUqcO.js"></script>
+  <link rel="stylesheet" crossorigin href="/microsoft-foundry-intro/assets/index-Db0CBfG_.css">
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <!-- Presentation stage -->
+  <div id="presentation">
+    <div id="slide-scaler">
+      <div id="slide-container"><!-- slides injected here --></div>
+    </div>
+  </div>
+
+  <!-- Bottom chrome -->
+  <div id="slide-counter">1 / 30</div>
+  <div id="section-label"></div>
+
+  <!-- Speaker-notes band (bottom, does not overlap the slide) -->
+  <aside id="speaker-notes-overlay" aria-live="polite">
+    <div class="sn-inner">
+      <div class="sn-header">Speaker Notes</div>
+      <div class="sn-body"></div>
+    </div>
+  </aside>
+
+  <!-- Controls (top-right): notes toggle + settings gear -->
+  <button id="notes-toggle" title="Toggle speaker notes (N)">&#128221;</button>
+  <button id="admin-toggle" title="Settings (A · Esc to close)">&#9881;</button>
+  <div id="admin-overlay"></div>
+  <div id="admin-panel"></div>
+
+</body>
+</html>

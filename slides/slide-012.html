@@ -1,0 +1,33 @@
+<!-- HAND-CRAFTED OVERRIDE — do not regenerate -->
+<article class="slide" data-number="12" data-type="comparison" data-section="Agents &amp; Tools">
+  <div class="slide-bg"></div>
+  <div class="slide-content">
+    <h1 class="slide-title">From chatbot to agent</h1>
+    <p class="slide-lead"><strong>A chatbot talks; an agent does.</strong></p>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-head"><span class="ch-icon">&#128172;</span> A chatbot</div>
+        <div class="compare-sub">Generates text in reply.</div>
+      </div>
+      <div class="compare-col tone-accent">
+        <div class="compare-head"><span class="ch-icon">&#129302;</span> An agent</div>
+        <div class="compare-sub">Reasons about a goal, then takes action across steps: searches, runs code, calls your systems, and finishes the task.</div>
+      </div>
+    </div>
+    <div class="formula-strip">
+      <span class="formula-eq">Every agent =</span>
+      <div class="formula-term"><div class="formula-term-title">Model</div><div class="formula-term-sub">reason</div></div>
+      <span class="formula-op">+</span>
+      <div class="formula-term"><div class="formula-term-title">Instructions</div><div class="formula-term-sub">goals &amp; limits</div></div>
+      <span class="formula-op">+</span>
+      <div class="formula-term"><div class="formula-term-title">Tools</div><div class="formula-term-sub">act</div></div>
+    </div>
+    <div class="callout">Build it two ways: a <strong>prompt agent</strong> (no code &mdash; Foundry runs it) or a <strong>hosted agent</strong> (your code, any framework &mdash; Foundry hosts and scales it).</div>
+  </div>
+  <aside class="speaker-notes" hidden>
+    <p>The cleanest definition: "Unlike a simple chatbot that only generates text, an agent can call tools, access external data, and make decisions across multiple steps to complete a task." Some agents don't even have a chat window &mdash; they run in the background, triggered by events.</p>
+    <p>The mental model is three parts, every time: a <strong>model</strong> (the reasoning engine), <strong>instructions</strong> (goals, constraints, behavior), and <strong>tools</strong> (how it takes action or reaches data).</p>
+    <p>Recall the build spectrum from earlier: <strong>prompt agents</strong> need no application code &mdash; great for fast starts and internal tools. <strong>Hosted agents</strong> let engineering teams bring their own code in frameworks like the Microsoft Agent Framework, LangGraph, or the OpenAI Agents SDK, while Foundry handles hosting, scaling, identity, and monitoring. Teams offload the "undifferentiated heavy lifting" and ship faster.</p>
+    <p><strong>Transition:</strong> The magic word there was "tools." Let's look at those.</p>
+  </aside>
+</article>
