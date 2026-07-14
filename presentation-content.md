@@ -30,9 +30,9 @@ research_allowlist:
     - research/2026-07-13-msdocs-foundry-iq-knowledge.md
     - research/2026-07-13-msdocs-foundry-trust-enterprise-readiness.md
     - research/2026-07-13-web-foundry-business-value-outcomes.md
-version: 2
+version: 3
 created: 2026-07-13
-revised: 2026-07-13
+revised: 2026-07-14
 ---
 
 # Presentation Outline — Microsoft Foundry: An Introduction
@@ -56,20 +56,20 @@ revised: 2026-07-13
 7. Section transition
 8. One catalog, many models
 9. Choose, compare, and route
-10. Business value: freedom of model choice
+10. Freedom of model choice
 
 ### Section 4 — Capability 2: Agents & Tools (Slides 11–15)
 11. Section transition
 12. From chatbot to agent
 13. Tools: connecting AI to real work
 14. Multiple agents, working together
-15. Proof point: Commerzbank "Ava"
+15. Success Story: Commerzbank "Ava"
 
 ### Section 5 — Capability 3: Foundry IQ (Knowledge & Grounding) (Slides 16–19)
 16. Section transition
 17. The problem: models can't see your data
 18. How Foundry IQ works (diagram)
-19. Business value: better answers, built once
+19. Better answers, built once
 
 ### Section 6 — Capability 4: Trust & Enterprise Readiness (Slides 20–24)
 20. Section transition
@@ -218,7 +218,7 @@ Sources: research/2026-07-13-web-foundry-business-value-outcomes.md, research/20
 **Speaker Notes:**
 Only two nouns to remember. A **Foundry resource** is the top-level container where an organization sets governance — security, networking, who can access what. A **project** is the workspace *inside* it where a team actually builds.
 
-Why the split matters (business value): IT applies controls once at the resource level, and multiple teams then build inside their own projects — reusing model deployments and connections "without repeated IT setup." Central control, local speed.
+Why the split matters: IT applies controls once at the resource level, and multiple teams then build inside their own projects — reusing model deployments and connections "without repeated IT setup." Central control, local speed.
 
 Inside a project you'll find the three things the rest of the talk covers: models (from the catalog), agents (model + instructions + tools), and the tools/knowledge they use. Teams reach all of it through a browser portal at ai.azure.com, or via code — SDKs (software development kits) for Python, C#, JavaScript, and Java, a VS Code extension, and a command line.
 
@@ -253,7 +253,7 @@ This spectrum is reassuring for a new audience: you don't have to boil the ocean
 
 Left: just call a model — send a prompt, get an answer, no orchestration. Middle: a **prompt agent** — you specify a model, instructions, and tools, and Foundry hosts and runs it; no application code or servers to maintain. Right: a **hosted agent** — you bring your own code in any framework, and Foundry runs it with a managed endpoint, scaling, identity, and monitoring.
 
-Business value: teams start with the least to manage and "graduate to full code as needs grow," which protects early investment — you never hit a wall that forces a rewrite.
+Teams start with the least to manage and "graduate to full code as needs grow," which protects early investment — you never hit a wall that forces a rewrite.
 
 We'll unpack "agent" properly in Section 4; for now the point is the on-ramp is gentle.
 
@@ -345,7 +345,7 @@ Sources: research/2026-07-13-msdocs-foundry-overview-model-catalog.md, research/
 
 <!-- Slide 10 | Section: Models & Model Choice | Type: comparison | Visual: hand-craft -->
 
-# Business value: freedom of model choice
+# Freedom of model choice
 
 ```
   LOCKED TO ONE MODEL              │   FREEDOM OF CHOICE (FOUNDRY)
@@ -415,7 +415,7 @@ The cleanest definition: "Unlike a simple chatbot that only generates text, an a
 
 The mental model is three parts, every time: a **model** (the reasoning engine), **instructions** (goals, constraints, behavior), and **tools** (how it takes action or reaches data).
 
-Recall the build spectrum from earlier: **prompt agents** need no application code — great for fast starts and internal tools. **Hosted agents** let engineering teams bring their own code in frameworks like the Microsoft Agent Framework, LangGraph, or the OpenAI Agents SDK, while Foundry handles hosting, scaling, identity, and monitoring. Business value: teams offload the "undifferentiated heavy lifting" and ship faster.
+Recall the build spectrum from earlier: **prompt agents** need no application code — great for fast starts and internal tools. **Hosted agents** let engineering teams bring their own code in frameworks like the Microsoft Agent Framework, LangGraph, or the OpenAI Agents SDK, while Foundry handles hosting, scaling, identity, and monitoring. Teams offload the "undifferentiated heavy lifting" and ship faster.
 
 Transition: The magic word there was "tools." Let's look at those.
 
@@ -448,7 +448,7 @@ Three families: built-in tools (some, like web search and memory, are in preview
 
 Define MCP once: the **Model Context Protocol** is an open standard for how apps expose tools to AI models. Because it's open, a tool built once can be reused by many agents and runtimes — less glue code, faster rollout.
 
-Business value: agents plug into the systems a business already runs, and each agent acts with its own scoped identity and permissions rather than shared credentials — so automation is real *and* controlled.
+Agents plug into the systems a business already runs, and each agent acts with its own scoped identity and permissions rather than shared credentials — so automation is real *and* controlled.
 
 Transition: One agent is powerful; sometimes you need several working together.
 
@@ -491,7 +491,7 @@ Sources: research/2026-07-13-msdocs-foundry-agent-service-tools.md
 
 <!-- Slide 15 | Section: Agents & Tools | Type: quote -->
 
-# Proof point: Commerzbank's "Ava"
+# Success Story: Commerzbank's "Ava"
 
 > "Ava manages 30,000-plus customer conversations every month, resolving **75% of requests autonomously** and delivering round-the-clock support."
 
@@ -598,7 +598,7 @@ Sources: research/2026-07-13-msdocs-foundry-iq-knowledge.md
 
 <!-- Slide 19 | Section: Foundry IQ | Type: boxes | Visual: hand-craft -->
 
-# Business value: better answers, built once
+# Better answers, built once
 
 ```
  ┌─────────────────────────┐   ┌─────────────────────────┐
@@ -724,7 +724,7 @@ A trace is the step-by-step record — it answers "where did this response come 
 
 Two facts land well: tracing often needs *no code changes* (connect Application Insights and it's on within minutes), and it's built on OpenTelemetry, an open standard, so it works across frameworks.
 
-Business value: this is the difference between hoping and knowing — and when something goes wrong in production, you diagnose it in minutes instead of guessing.
+This is the difference between hoping and knowing — and when something goes wrong in production, you diagnose it in minutes instead of guessing.
 
 Transition: Knowing it works is half of trust. The other half is keeping it safe and protecting the data.
 
@@ -833,12 +833,10 @@ Sources: research/2026-07-13-msdocs-foundry-overview-model-catalog.md, research/
 
 Microsoft Foundry lets you take an AI idea to production with the **evaluation** to prove it's good, the **observability** to see what it does, the **safety and security** to protect it, and the **governance** to control it — all in one place.
 
-Start simple in the portal at **ai.azure.com** — a single model call or a prompt agent — and grow from there. **100,000+ organizations already are.**
-
 **Speaker Notes:**
 This is the close. Deliver the one-line business case slowly — it maps directly to the four capabilities we just walked, so it reinforces the whole talk.
 
-Then the practical on-ramp: nobody has to commit to a giant program. You can open the portal, make a single model call or stand up a prompt agent with no code, and grow into agents, grounding, and governance as needs mature. The "100,000+ organizations" callback lands the momentum point one more time.
+Then simply invite them in: nobody has to commit to a giant program — teams can start small and grow into agents, grounding, and governance as needs mature.
 
 For procurement or commercial questions, route to the account team after the session.
 

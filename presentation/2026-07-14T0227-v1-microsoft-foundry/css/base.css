@@ -208,8 +208,7 @@ ol.slide-list li::before {
 ol.slide-list li {
   padding-left: 60px;
   min-height: 44px;
-  display: flex;
-  align-items: center;
+  display: block;
 }
 
 /* Blockquote */
