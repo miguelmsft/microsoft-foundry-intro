@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Production build output (published to the gh-pages branch instead)
+dist/
+
+# Vite cache
+.vite/
+
+# Researcher/tooling temp artifacts
+research/_cache/
+research/_mcp.py
+research/pages/
+research/research-cache/
+research/mslearn_mcp.py
+**/.research-cache/
+
+# Slide-review screenshots (large binaries)
+presentation/**/review-screenshots/
+
+# OS
+Thumbs.db
+.DS_Store

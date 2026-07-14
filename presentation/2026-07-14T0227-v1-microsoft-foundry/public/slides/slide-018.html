@@ -1,0 +1,40 @@
+<!-- HAND-CRAFTED OVERRIDE — do not regenerate -->
+<article class="slide" data-number="18" data-type="diagram" data-section="Foundry IQ">
+  <div class="slide-bg"></div>
+  <div class="slide-content">
+    <h1 class="slide-title">How Foundry IQ works</h1>
+    <div class="vflow">
+      <div class="vflow-node">
+        <span class="vflow-title">Agent asks a question</span>
+        <span class="vflow-note">runs under the <strong>user's own identity</strong></span>
+      </div>
+      <div class="vflow-arrow">&#8595;</div>
+      <div class="vflow-node">
+        <span class="vflow-title">Knowledge base</span>
+        <span class="vflow-note">retrieval settings &mdash; <strong>one reusable endpoint</strong></span>
+      </div>
+      <div class="vflow-arrow">&#8595;<span class="va-label">points to 1..many</span></div>
+      <div class="vflow-node">
+        <span class="vflow-title">Knowledge sources</span>
+        <span class="vflow-note">SharePoint &middot; files &middot; Blob &middot; OneLake &middot; the web &middot; databases</span>
+      </div>
+      <div class="vflow-arrow">&#8595;</div>
+      <div class="vflow-node">
+        <span class="vflow-title">Agentic retrieval</span>
+        <span class="vflow-note"><strong>Azure AI Search</strong> &mdash; plan &rarr; search in parallel &rarr; rerank &rarr; assemble</span>
+      </div>
+      <div class="vflow-arrow">&#8595;</div>
+      <div class="vflow-node answer">
+        <span class="vflow-title">Grounded answer + citations</span>
+        <span class="vflow-note" style="margin-left:16px;">only content the user is allowed to see</span>
+      </div>
+    </div>
+  </div>
+  <aside class="speaker-notes" hidden>
+    <p>Three terms, one sentence: you create a <strong>knowledge base</strong> that points at one or more <strong>knowledge sources</strong>, and when an agent asks a question, <strong>agentic retrieval</strong> runs the search and returns grounded, cited, permission-filtered results.</p>
+    <p>"Agentic retrieval" is the upgrade over old-style single-query search &mdash; it behaves like a research assistant: it breaks a complex question into focused sub-questions, runs them in parallel across sources, reranks for relevance, and assembles a cited answer. It's built on Azure AI Search, a mature enterprise search platform.</p>
+    <p>The security point is critical and worth slowing down on: queries run under the <em>caller's</em> Microsoft Entra identity, honoring existing access controls and Microsoft Purview sensitivity labels. So an agent returns only what that specific user is allowed to see &mdash; security lives at the data layer, not bolted on in app code.</p>
+    <p>For accuracy: knowledge bases are generally available; some newer sources and advanced features are in preview &mdash; no need to dwell on the matrix.</p>
+    <p><strong>Transition:</strong> So what does that buy the business?</p>
+  </aside>
+</article>

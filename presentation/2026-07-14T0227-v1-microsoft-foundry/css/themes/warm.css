@@ -1,0 +1,76 @@
+/* ============================================================
+   THEME: Warm & Welcoming
+   ============================================================ */
+[data-theme="warm"] {
+  --bg-primary: #faf6f1;
+  --bg-secondary: #f0e9df;
+  --bg-card: rgba(0, 0, 0, 0.03);
+  --border-card: rgba(0, 0, 0, 0.08);
+  --text-primary: #2d2a26;
+  --text-secondary: rgba(45, 42, 38, 0.65);
+  --accent-primary: #c47a2e;
+  --accent-secondary: #8b5e3c;
+  --gradient-title: linear-gradient(135deg, #c47a2e, #8b5e3c);
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --diagram-border: rgba(0, 0, 0, 0.14);
+  --diagram-connector: rgba(0, 0, 0, 0.2);
+  --diagram-arrow: rgba(139, 94, 60, 0.6);
+  --success: #0e6b3a;
+  --danger: #b23b2e;
+  --code-bg: rgba(45, 42, 38, 0.05);
+}
+
+/* Warm cards have no glassmorphism blur */
+[data-theme="warm"] .tool-card,
+[data-theme="warm"] .ecosystem-item,
+[data-theme="warm"] .flow-step,
+[data-theme="warm"] .compare-col,
+[data-theme="warm"] .pillar-card,
+[data-theme="warm"] .stat-card,
+[data-theme="warm"] .tier-item {
+  backdrop-filter: none;
+}
+
+[data-theme="warm"] .slide[data-type="transition"] .slide-bg,
+[data-theme="warm"] .slide[data-type="recap"] .slide-bg {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(196, 122, 46, 0.12) 0%, transparent 55%);
+}
+
+/* soft warm glow on title */
+[data-theme="warm"] .slide[data-type="title-slide"] .slide-bg::before {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196, 122, 46, 0.14) 0%, transparent 70%);
+  top: -140px;
+  right: -100px;
+  animation: orbFloat1 9s ease-in-out infinite;
+}
+
+[data-theme="warm"] .slide[data-type="title-slide"] .slide-bg::after {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 94, 60, 0.12) 0%, transparent 70%);
+  bottom: -90px;
+  left: -60px;
+  animation: orbFloat2 11s ease-in-out infinite;
+}
+
+/* Code syntax highlighting */
+[data-theme="warm"] .kw   { color: #b35900; }
+[data-theme="warm"] .str  { color: #0e6b3a; }
+[data-theme="warm"] .cmt  { color: #8a8580; }
+[data-theme="warm"] .fn   { color: #7c3aed; }
+[data-theme="warm"] .num  { color: #0969da; }
+[data-theme="warm"] .op   { color: #b35900; }
+[data-theme="warm"] .prop { color: #0969da; }
+[data-theme="warm"] .tag  { color: #0e6b3a; }

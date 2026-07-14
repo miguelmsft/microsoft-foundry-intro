@@ -1,0 +1,59 @@
+/* ============================================================
+   THEME: Corporate Clean
+   ============================================================ */
+[data-theme="corporate"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --bg-card: rgba(0, 0, 0, 0.02);
+  --border-card: rgba(0, 0, 0, 0.08);
+  --text-primary: #1a1a2e;
+  --text-secondary: rgba(26, 26, 46, 0.6);
+  --accent-primary: #0066cc;
+  --accent-secondary: #003d7a;
+  --gradient-title: linear-gradient(135deg, #0066cc, #003d7a);
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --diagram-border: rgba(0, 0, 0, 0.12);
+  --diagram-connector: rgba(0, 0, 0, 0.18);
+  --diagram-arrow: rgba(0, 102, 204, 0.55);
+  --success: #1a7f37;
+  --danger: #cf222e;
+  --code-bg: rgba(26, 26, 46, 0.04);
+}
+
+[data-theme="corporate"] .tool-card,
+[data-theme="corporate"] .ecosystem-item,
+[data-theme="corporate"] .flow-step,
+[data-theme="corporate"] .compare-col,
+[data-theme="corporate"] .pillar-card,
+[data-theme="corporate"] .stat-card,
+[data-theme="corporate"] .tier-item {
+  backdrop-filter: none;
+}
+
+/* Clean corporate content grid */
+[data-theme="corporate"] .slide[data-type="diagram"] .slide-bg,
+[data-theme="corporate"] .slide[data-type="boxes"] .slide-bg {
+  background-image:
+    linear-gradient(rgba(0, 102, 204, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 102, 204, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+[data-theme="corporate"] .slide[data-type="transition"] .slide-bg,
+[data-theme="corporate"] .slide[data-type="recap"] .slide-bg {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(0, 102, 204, 0.08) 0%, transparent 55%);
+}
+
+/* Code syntax highlighting */
+[data-theme="corporate"] .kw   { color: #d73a49; }
+[data-theme="corporate"] .str  { color: #032f62; }
+[data-theme="corporate"] .cmt  { color: #6a737d; }
+[data-theme="corporate"] .fn   { color: #6f42c1; }
+[data-theme="corporate"] .num  { color: #005cc5; }
+[data-theme="corporate"] .op   { color: #d73a49; }
+[data-theme="corporate"] .prop { color: #005cc5; }
+[data-theme="corporate"] .tag  { color: #22863a; }

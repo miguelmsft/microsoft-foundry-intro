@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap');
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --notes-h: 300px;
+}
+
+/* ============================================================
+   PRESENTATION STAGE + VIEWPORT SCALING
+   ============================================================ */
+#presentation {
+  position: fixed;
+  inset: 0;
+  background: #000; /* letterbox bars */
+  overflow: hidden;
+}
+
+#slide-scaler {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: center center;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#slide-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================
+   SLIDE BASE
+   ============================================================ */
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.slide-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 32px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  text-align: center;
+}
+
+/* ============================================================
+   TYPOGRAPHY (1920x1080 canvas)
+   ============================================================ */
+.slide-title {
+  font-family: var(--font-heading);
+  font-size: 68px;
+  font-weight: 700;
+  line-height: 1.08;
+  text-align: center;
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.slide-subtitle {
+  font-size: 38px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.3;
+  max-width: 1300px;
+}
+
+.slide-body {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  max-width: 1400px;
+}
+
+.slide-body.muted {
+  color: var(--text-secondary);
+}
+
+.slide-body strong,
+.slide-list strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.slide-body em,
+.slide-list em {
+  font-style: italic;
+  color: var(--accent-primary);
+}
+
+/* Lists */
+.slide-list {
+  list-style: none;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  text-align: left;
+}
+
+.slide-list li {
+  position: relative;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-primary);
+  padding-left: 44px;
+}
+
+.slide-list li strong {
+  color: var(--accent-secondary);
+}
+
+ul.slide-list li::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 16px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+}
+
+ol.slide-list {
+  counter-reset: li;
+}
+
+ol.slide-list li::before {
+  counter-increment: li;
+  content: counter(li);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--bg-primary);
+  background: var(--gradient-title);
+  border-radius: 50%;
+}
+
+ol.slide-list li {
+  padding-left: 60px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Blockquote */
+.slide-quote {
+  max-width: 1400px;
+  border-left: 6px solid var(--accent-primary);
+  padding: 8px 0 8px 40px;
+  text-align: left;
+}
+
+.slide-quote p {
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+.slide-quote p strong {
+  color: var(--accent-secondary);
+  font-weight: 700;
+}
+
+.quote-attribution {
+  font-size: 30px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Code block base — wraps by default so non-code slides never scroll */
+.code-block {
+  font-family: var(--font-mono);
+  font-size: 30px;
+  line-height: 1.5;
+  background: var(--code-bg);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 28px 32px;
+  text-align: left;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  max-width: 1500px;
+}
+
+/* Tables */
+.slide-table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 29px;
+  max-width: 1500px;
+}
+
+.slide-table thead th {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-align: left;
+  padding: 18px 26px;
+  border-bottom: 2px solid var(--border-card);
+}
+
+.slide-table tbody td {
+  font-size: 29px;
+  font-weight: 400;
+  color: var(--text-primary);
+  padding: 16px 26px;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.slide-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ============================================================
+   SLIDE COUNTER + SECTION LABEL + PROGRESS
+   ============================================================ */
+#slide-counter {
+  position: fixed;
+  bottom: 20px;
+  left: 28px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  z-index: 100;
+}
+
+#section-label {
+  position: fixed;
+  bottom: 20px;
+  right: 28px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0.4;
+  z-index: 100;
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--gradient-title);
+  z-index: 100;
+  transition: width 0.4s ease;
+}
+
+/* Lift bottom chrome above the notes band when visible */
+body.notes-visible #slide-counter,
+body.notes-visible #section-label {
+  bottom: calc(var(--notes-h, 300px) + 14px);
+}
+
+/* ============================================================
+   SPEAKER NOTES — bottom band (does NOT overlap the slide)
+   ============================================================ */
+.speaker-notes {
+  display: none;
+}
+
+#speaker-notes-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--notes-h, 300px);
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.82);
+  border-top: 1px solid var(--border-card);
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.4);
+  color: #f2f4f8;
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
+  padding: 26px 0 32px;
+}
+
+#speaker-notes-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* light themes get a light notes band for legibility */
+[data-theme="warm"] #speaker-notes-overlay,
+[data-theme="corporate"] #speaker-notes-overlay {
+  background: rgba(252, 250, 247, 0.96);
+  color: #211f1c;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.sn-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.sn-header {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 12px;
+}
+
+.sn-body {
+  font-family: var(--font-body);
+  font-size: 21px;
+  line-height: 1.5;
+}
+
+.sn-body p {
+  margin-bottom: 12px;
+}
+
+.sn-body ul {
+  margin: 10px 0 12px 26px;
+}
+
+.sn-body li {
+  margin-bottom: 8px;
+}
+
+.sn-body strong {
+  font-weight: 700;
+}
+
+.sn-body em {
+  font-style: italic;
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.accent {
+  color: var(--accent-primary);
+}
+
+.accent-2 {
+  color: var(--accent-secondary);
+}
+
+.nowrap {
+  white-space: nowrap;
+}

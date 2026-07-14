@@ -1,0 +1,80 @@
+/* ============================================================
+   PRINT / PDF EXPORT
+   ============================================================ */
+@media print {
+  @page {
+    size: 10in 5.625in landscape;
+    margin: 0;
+  }
+
+  html, body {
+    width: auto;
+    height: auto;
+    overflow: visible;
+    background: #fff;
+  }
+
+  #presentation {
+    position: static;
+    background: none;
+  }
+
+  #slide-scaler {
+    position: static;
+    transform: none !important;
+    width: auto;
+    height: auto;
+  }
+
+  #slide-container {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+  .slide {
+    position: relative !important;
+    width: 10in !important;
+    height: 5.625in !important;
+    page-break-after: always;
+    break-after: page;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    display: flex !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .slide.print-hidden {
+    display: none !important;
+  }
+
+  /* Scale slide content down to fit the print page */
+  .slide .slide-content {
+    transform: scale(0.5);
+    transform-origin: center center;
+  }
+
+  #admin-toggle,
+  #admin-panel,
+  #admin-overlay,
+  #notes-toggle,
+  #slide-counter,
+  #section-label,
+  #progress-bar,
+  #speaker-notes-overlay,
+  .speaker-notes {
+    display: none !important;
+  }
+
+  .slide-bg {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,37 @@
+<!-- HAND-CRAFTED OVERRIDE — do not regenerate -->
+<article class="slide" data-number="22" data-type="comparison" data-section="Trust &amp; Enterprise Readiness">
+  <div class="slide-bg"></div>
+  <div class="slide-content">
+    <h1 class="slide-title">Evaluate and observe</h1>
+    <div class="compare-grid">
+      <div class="compare-col tone-accent">
+        <div class="compare-head"><span class="ch-icon">&#128207;</span> Evaluation</div>
+        <div class="compare-sub">Prove quality &amp; safety with evidence, not gut feel.</div>
+        <ul class="compare-list">
+          <li>Built-in scorers: groundedness, relevance, tool-call accuracy, task completion, harmful content</li>
+          <li>Set a bar <strong>before</strong> launch; keep checking <strong>after</strong> (catch drift)</li>
+        </ul>
+      </div>
+      <div class="compare-col tone-accent">
+        <div class="compare-head"><span class="ch-icon">&#128269;</span> Observability</div>
+        <div class="compare-sub">See inside a running system.</div>
+        <ul class="compare-list">
+          <li>A <strong>trace</strong> records every step &mdash; inputs, tool calls, latency &mdash; so you can answer "what happened, and why?"</li>
+          <li>Turns on with <strong>no code changes</strong>; built on OpenTelemetry</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="speaker-notes" hidden>
+    <p>Two complementary ideas.</p>
+    <p><strong>Evaluation</strong> = proving quality and safety with evidence, not gut feel.</p>
+    <p>Foundry has built-in "evaluators" that score things like groundedness, relevance, whether the agent used the right tools, whether it completed the task, and whether it produced anything harmful.</p>
+    <p>You can set an acceptance threshold &mdash; e.g., an 85% task-adherence pass rate &mdash; before you ship, then run <em>continuous</em> evaluation on live traffic to catch drift.</p>
+    <p>That's what lets a review board sign off.</p>
+    <p><strong>Observability</strong> = seeing what a running agent actually did.</p>
+    <p>A trace is the step-by-step record &mdash; it answers "where did this response come from?" and "which step introduced the error or slowdown?"</p>
+    <p>Two facts land well: tracing often needs <em>no code changes</em> (connect Application Insights and it's on within minutes), and it's built on OpenTelemetry, an open standard, so it works across frameworks.</p>
+    <p>Business value: this is the difference between hoping and knowing &mdash; and when something goes wrong in production, you diagnose it in minutes instead of guessing.</p>
+    <p><strong>Transition:</strong> Knowing it works is half of trust. The other half is keeping it safe and protecting the data.</p>
+  </aside>
+</article>

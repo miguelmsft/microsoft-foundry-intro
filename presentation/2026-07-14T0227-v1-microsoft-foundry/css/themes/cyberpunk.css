@@ -1,0 +1,65 @@
+/* ============================================================
+   THEME: Neon Cyberpunk
+   ============================================================ */
+[data-theme="cyberpunk"] {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --border-card: rgba(0, 255, 255, 0.1);
+  --text-primary: #e0e0e8;
+  --text-secondary: rgba(224, 224, 232, 0.65);
+  --accent-primary: #00ffd5;
+  --accent-secondary: #ff2d95;
+  --gradient-title: linear-gradient(135deg, #00ffd5, #ff2d95);
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --diagram-border: rgba(0, 255, 213, 0.28);
+  --diagram-connector: rgba(0, 255, 213, 0.35);
+  --diagram-arrow: rgba(255, 45, 149, 0.6);
+  --success: #00ff9c;
+  --danger: #ff3b6b;
+  --code-bg: rgba(0, 0, 0, 0.55);
+}
+
+/* Full-viewport neon grid */
+[data-theme="cyberpunk"] .slide-bg {
+  background-image:
+    linear-gradient(rgba(0, 255, 213, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 213, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+[data-theme="cyberpunk"] .slide[data-type="transition"] .slide-bg,
+[data-theme="cyberpunk"] .slide[data-type="recap"] .slide-bg {
+  background-color: transparent;
+  background-image:
+    linear-gradient(rgba(0, 255, 213, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 213, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(255, 45, 149, 0.1) 0%, transparent 55%);
+  background-size: 50px 50px, 50px 50px, 100% 100%;
+}
+
+/* Neon glow on titles */
+[data-theme="cyberpunk"] .slide-title {
+  filter: drop-shadow(0 0 18px rgba(0, 255, 213, 0.25));
+}
+
+[data-theme="cyberpunk"] .tool-card,
+[data-theme="cyberpunk"] .flow-step,
+[data-theme="cyberpunk"] .compare-col,
+[data-theme="cyberpunk"] .pillar-card,
+[data-theme="cyberpunk"] .stat-card {
+  box-shadow: 0 0 24px rgba(0, 255, 213, 0.06), inset 0 0 22px rgba(0, 255, 213, 0.02);
+}
+
+/* Code syntax highlighting */
+[data-theme="cyberpunk"] .kw   { color: #ff2d95; }
+[data-theme="cyberpunk"] .str  { color: #00ffd5; }
+[data-theme="cyberpunk"] .cmt  { color: #555566; }
+[data-theme="cyberpunk"] .fn   { color: #bf5fff; }
+[data-theme="cyberpunk"] .num  { color: #ffcc00; }
+[data-theme="cyberpunk"] .op   { color: #ff2d95; }
+[data-theme="cyberpunk"] .prop { color: #ffcc00; }
+[data-theme="cyberpunk"] .tag  { color: #00ffd5; }
