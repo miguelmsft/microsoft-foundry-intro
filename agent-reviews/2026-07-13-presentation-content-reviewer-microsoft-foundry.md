@@ -256,3 +256,127 @@ No material issues. The closing recap and bottom-line slides synthesize the four
 All Round-1 must-fix blockers are resolved. The prohibited pricing/ROI content has been removed from slides and speaker notes; acronym definitions and Forrester attribution are fixed; the Slide 14 wording and frontmatter duration are corrected; and no new fidelity, legacy/hub-framing, or pacing regressions were introduced. Remaining items are 🟢 minor nice-to-have polish only and are waived for approval.
 
 ✅ APPROVED
+
+## Review Round 3 — 2026-07-14 (content addition)
+
+### Edit Verification
+
+| Check | Status | Verification |
+|-------|--------|--------------|
+| New Slides 15-17 added and Commerzbank renumbered to Slide 18 | ✅ fixed / valid | The deck is now version 4 with 30 slides. Slide metadata comments are sequential 1-30, and Slide 18 is correctly the Commerzbank success story. |
+| Slide 26 trimmed to avoid re-explaining guardrail mechanics | ✅ fixed | Slide 26 now gives a safety/security platform view and explicitly calls back to Slide 17 instead of repeating the four guardrail scan points or risk-category mechanics. |
+| Preview status for agent guardrails and tool-call/tool-response scanning | ✅ fixed | Slide 17 marks tool call and tool response scans as "agents only (preview)" and states "agent guardrails in preview" in both body/notes. |
+| No pricing/cost/ROI or legacy/classic/hub framing introduced | ✅ fixed | Full-file scan found no hits for pricing, cost/costs, ROI, payback, dollar/$, classic, legacy, hubs, or new-vs-old framing. |
+| Integrity after renumbering | ✅ fixed | All 30 slides have `Speaker Notes:` and `Sources:` lines. Slide 26's body reference to Slide 17 is accurate. Section labels remain correct. |
+
+## Presentation Review Summary
+
+| Dimension | Score (1-5) | Key Finding |
+|-----------|-------------|-------------|
+| 1. One-Idea-Per-Slide | 4/5 | New slides are dense but each has one controlling idea: enterprise foundations, trust checklist, guardrails mechanics. |
+| 2. Audience Calibration | 5/5 | Plain-language explanations are strong; RBAC, XPIA, PII, Entra, and VNet are defined or explained sufficiently for a mixed audience. |
+| 3. Progressive Learning Flow | 5/5 | Addition improves the flow from agents/tools into trust by introducing enterprise foundations before the Commerzbank proof point. |
+| 4. Research Fidelity | 5/5 | Slides 15-17 and changed Slide 26 are source-aligned; preview caveats are present; no invented pricing or legacy framing found. |
+| 5. Coverage Completeness | 5/5 | New trust/enterprise-readiness material covers previously under-expanded guardrails, agent identity, networking, approvals, and red teaming. |
+| 6. Example & Code Validity | 4/5 | No code or demos; conceptual examples remain valid and source-aligned. |
+| 7. Pacing & Density | 4/5 | 30 slides is at the upper bound for ~30 minutes + Q&A but acceptable if Slides 15-17 are delivered briskly. |
+| 8. Visual Variety | 5/5 | New box/list/diagram slides are appropriately tagged `Visual: hand-craft`; visual variety remains strong. |
+| 9. Storytelling Arc | 5/5 | The trust story is stronger: "agents can act" now immediately leads to "agents can be controlled." |
+| 10. Content Progression / Non-Redundancy | 4/5 | Slide 17 and Slide 26 are complementary, not redundant; minor source-line precision suggestion only. |
+| **Overall** | **46/50** | |
+
+## Detailed Findings
+
+### 1. One-Idea-Per-Slide Check
+
+No material issues.
+
+- **Slide 15** focuses on one idea: every agent inherits enterprise foundations.
+- **Slide 16** focuses on one idea: a practical defense-in-depth checklist for trustworthy agents.
+- **Slide 17** focuses on one idea: how Foundry guardrails work and how they are tuned.
+- These slides are visually dense, but still within a presenter-led 30-minute intro because each has a clear takeaway and supporting speaker notes.
+
+### 2. Audience Calibration
+
+No material issues.
+
+- **Slide 15:** "role-based access control (RBAC)" and "cross-prompt injection (XPIA)" are defined on-screen; notes explain Entra as Microsoft's identity service and VNet as Azure virtual network.
+- **Slide 17:** PII appears as "personal data (PII)" on-screen and is expanded as "personally identifiable information (PII)" in notes.
+- The new slides keep the main point business-accessible while moving deeper implementation detail into notes.
+
+### 3. Progressive Learning Flow
+
+No material issues. The added sequence works well:
+
+- Slide 14 ends with multi-agent orchestration and human approval.
+- Slide 15 broadens to the enterprise foundation every agent runs on.
+- Slide 16 turns that foundation into a team checklist.
+- Slide 17 zooms into guardrails.
+- Slide 18 then lands the story with a production banking proof point.
+
+This is a smoother bridge into Foundry IQ and the later Trust section than the previous flow.
+
+### 4. Research Fidelity
+
+No material issues.
+
+Spot-checks on the new/changed content:
+
+- **Slide 15:** Dedicated Microsoft Entra identity per agent, RBAC, private networking/BYO VNet, isolated per-session sandboxes, content safety including XPIA, observability/tracing, and publishing to Microsoft 365 Copilot/Teams are supported by the Agent Service & Tools research.
+- **Slide 16:** Scoped identity, approval gates, tool allow-lists, human-in-the-loop, red teaming, task-adherence/tool-call evaluations, and tracing are supported by Agent Service & Tools and Trust & Enterprise Readiness.
+- **Slide 17:** Microsoft.DefaultV2, the four intervention points, agent-only preview status for tool-call/tool-response scans, hate/sexual/self-harm/violence severity levels, jailbreak, XPIA, PII, protected material, task adherence/off-task answers, content filters, prompt shields, abuse detection, and agent guardrails preview are supported by Trust & Enterprise Readiness.
+- **Slide 26:** AI Red Teaming Agent, PyRIT, Attack Success Rate, Entra ID + RBAC, "your data is your data," encryption, data residency, and private networking are supported by Trust & Enterprise Readiness.
+
+Source-file cross-check remains clean: the frontmatter lists all five `.md` files present in `research/`, and no listed file is missing.
+
+🟢 **Minor (nice-to-have): Slide 15** uses the phrase "in a few clicks" for publishing to Microsoft 365 Copilot and Teams. The publishing destination is supported by the listed Agent Service source; the exact "few clicks" wording is supported elsewhere in the deck's business-value research. For maximum per-slide provenance precision, either add `research/2026-07-13-web-foundry-business-value-outcomes.md` to Slide 15's `Sources:` line or remove "in a few clicks."
+
+### 5. Coverage Completeness
+
+No material issues. The addition improves coverage of enterprise readiness inside the Agents & Tools section, especially:
+
+- per-agent identity and scoped permissions;
+- private networking and RBAC;
+- approval gates / allow-lists / human-in-the-loop;
+- guardrail intervention points and risk categories;
+- AI Red Teaming and evaluations before publishing.
+
+### 6. Example & Code Validity
+
+No material issues. The deck still has no live demos, code blocks, CLI commands, or runnable examples, which matches the brief. The new slides are conceptual and source-aligned.
+
+### 7. Pacing & Density
+
+No must-fix issue. **30 slides for ~30 minutes + Q&A** is tight but still acceptable because several slides are transitions, proof points, recap, or Q&A. The only practical presenter guidance is to keep Slides 15-17 brisk: Slide 15 = foundations, Slide 16 = checklist, Slide 17 = guardrails mechanics.
+
+### 8. Visual Variety & Engagement
+
+No material issues. Slides 15-17 contain ASCII/structured layouts and are correctly tagged `Visual: hand-craft`. The new mix (boxes → checklist/grid → diagram) avoids monotony and adds a useful visual break before the Commerzbank quote slide.
+
+### 9. Storytelling Arc
+
+No material issues. The addition strengthens the narrative: after showing that agents can take action, the deck immediately answers the natural audience concern — "how do we control them?" The close still ties back to the same one-platform theme.
+
+### 10. Content Progression / Non-Redundancy
+
+No material issues.
+
+- **Slide 17 vs. Slide 26:** complementary. Slide 17 explains guardrail mechanics; Slide 26 provides the broader safety/security platform view and calls back to Slide 17.
+- No delete-candidate redundancy introduced by the new slides.
+
+## Issues Summary
+
+| # | Severity | Slide(s) | Issue | Suggested Fix |
+|---|----------|----------|-------|---------------|
+| 1 | 🟢 Minor (nice-to-have) | 15 | Exact phrase "in a few clicks" is supported by the business-value research rather than the two files currently listed on Slide 15's `Sources:` line. | Add `research/2026-07-13-web-foundry-business-value-outcomes.md` to Slide 15's `Sources:` line, or remove "in a few clicks." |
+
+## Improvement Suggestions (Prioritized)
+
+1. Optional: tighten Slide 15 provenance by adding the business-value research file to its `Sources:` line if keeping "in a few clicks."
+2. Presenter pacing: treat Slides 15-17 as a quick three-step trust bridge, not a full security deep dive.
+
+## Verdict: APPROVED
+
+All must-checks pass. The new Slides 15-17 are accurate, preview caveats are present, acronyms are handled for the mixed audience, Slide 26 is complementary rather than redundant, and deck integrity after renumbering is sound. The only remaining item is 🟢 minor provenance polish and is waived for approval.
+
+✅ APPROVED

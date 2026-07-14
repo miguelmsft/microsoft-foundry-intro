@@ -5,7 +5,7 @@ An interactive presentation introducing the **new Microsoft Foundry** platform t
 ▶️ **Live presentation:** https://miguelmsft.github.io/microsoft-foundry-intro/
 
 - **Audience:** technical + business decision-makers, new to Foundry
-- **Length:** ~30 minutes + Q&A (27 slides)
+- **Length:** ~30 minutes + Q&A (30 slides)
 - **Tone:** plain-language, starts from the basics and builds up
 
 ## Navigating the deck
@@ -18,7 +18,7 @@ An interactive presentation introducing the **new Microsoft Foundry** platform t
 ## Run locally
 
 ```bash
-cd "presentation/2026-07-14T0227-v1-microsoft-foundry"
+cd "presentation/2026-07-14T1743-v2-microsoft-foundry"
 npm install
 npm run dev      # dev server at http://localhost:5173/
 npm run build    # production build to dist/

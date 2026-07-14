@@ -1,5 +1,5 @@
 <!-- HAND-CRAFTED OVERRIDE — do not regenerate -->
-<article class="slide" data-number="23" data-type="boxes" data-section="Trust &amp; Enterprise Readiness">
+<article class="slide" data-number="26" data-type="boxes" data-section="Trust &amp; Enterprise Readiness">
   <div class="slide-bg"></div>
   <div class="slide-content">
     <h1 class="slide-title">Keep it safe and secure</h1>
@@ -7,8 +7,8 @@
       <div class="compare-col tone-accent">
         <div class="compare-head"><span class="ch-icon">&#128737;&#65039;</span> Safety</div>
         <ul class="compare-list">
-          <li>Guardrails scan inputs, tool calls &amp; outputs; block harmful content in real time <strong>(on by default)</strong></li>
-          <li>The <strong>AI Red Teaming Agent</strong> tests for weaknesses <em>before</em> attackers find them</li>
+          <li>The <strong>AI Red Teaming Agent</strong> proactively finds weaknesses <em>before</em> an attacker or customer does</li>
+          <li>"Shift left" &mdash; proactive testing before deployment, not reactive incident cleanup</li>
         </ul>
       </div>
       <div class="compare-col tone-success">
@@ -19,12 +19,12 @@
         </ul>
       </div>
     </div>
+    <div class="callout">Guardrails (from the Agents section) apply here too &mdash; <strong>safety spans models and agents.</strong></div>
   </div>
   <aside class="speaker-notes" hidden>
-    <p><strong>Safety</strong> works at two levels.</p>
-    <p><strong>Guardrails</strong> are content controls that scan at defined points &mdash; the user's prompt, a tool call, a tool response, and the final output &mdash; and block harmful content (hate, violence, self-harm, jailbreak attempts, and more).</p>
-    <p>Models get a default guardrail, so there's safety out of the box.</p>
-    <p>The <strong>AI Red Teaming Agent</strong> proactively simulates attacks (built on Microsoft's open-source PyRIT framework) to find weaknesses before a customer or attacker does &mdash; Microsoft calls this "shifting left" from costly reactive incidents.</p>
+    <p>This is the platform-level view of safety and security &mdash; the data-protection and proactive-testing half of trust.</p>
+    <p><strong>Safety</strong> here is a callback: we detailed guardrails in the Agents section (slide 17). The point to reinforce is that guardrails aren't agent-only &mdash; the same content controls also protect core models, so safety spans everything you run on Foundry.</p>
+    <p>The <strong>AI Red Teaming Agent</strong> is the proactive half: it simulates attacks (built on Microsoft's open-source PyRIT framework) and scores the results with an Attack Success Rate, producing a scorecard that indicates whether the system is ready to deploy &mdash; catching weaknesses before a customer or attacker does. Microsoft calls this "shifting left" from costly reactive incidents to proactive testing before deployment.</p>
     <p><strong>Security</strong> answers the questions a Chief Information Security Officer (CISO) asks first.</p>
     <p>Access is controlled by identity &mdash; <strong>Microsoft Entra ID</strong> (Microsoft's identity service) plus <strong>RBAC</strong> (role-based access control) &mdash; which Microsoft recommends over shared API keys.</p>
     <p>Then the single most important trust statement for a business audience: "your data is your data" &mdash; your prompts and outputs are not available to other customers or model providers, and are not used to train their models.</p>

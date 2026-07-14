@@ -30,7 +30,7 @@ research_allowlist:
     - research/2026-07-13-msdocs-foundry-iq-knowledge.md
     - research/2026-07-13-msdocs-foundry-trust-enterprise-readiness.md
     - research/2026-07-13-web-foundry-business-value-outcomes.md
-version: 3
+version: 4
 created: 2026-07-13
 revised: 2026-07-14
 ---
@@ -38,7 +38,7 @@ revised: 2026-07-14
 # Presentation Outline — Microsoft Foundry: An Introduction
 
 **Audience:** Mixed — technical decision-makers (TDMs) and business decision-makers (BDMs), all new to Foundry.
-**Run time:** ~30 minutes + Q&A. **Slide count:** 27.
+**Run time:** ~30 minutes + Q&A. **Slide count:** 30.
 
 **Design intent:** Start from zero knowledge, then walk the four capabilities in order, pairing each with the business problem it solves. Plain language throughout; deeper technical detail lives in speaker notes.
 
@@ -58,30 +58,33 @@ revised: 2026-07-14
 9. Choose, compare, and route
 10. Freedom of model choice
 
-### Section 4 — Capability 2: Agents & Tools (Slides 11–15)
+### Section 4 — Capability 2: Agents & Tools (Slides 11–18)
 11. Section transition
 12. From chatbot to agent
 13. Tools: connecting AI to real work
 14. Multiple agents, working together
-15. Success Story: Commerzbank "Ava"
+15. Enterprise-grade by default
+16. Building agents you can trust
+17. Guardrails: safe by default, tunable to your policy
+18. Success Story: Commerzbank "Ava"
 
-### Section 5 — Capability 3: Foundry IQ (Knowledge & Grounding) (Slides 16–19)
-16. Section transition
-17. The problem: models can't see your data
-18. How Foundry IQ works (diagram)
-19. Better answers, built once
+### Section 5 — Capability 3: Foundry IQ (Knowledge & Grounding) (Slides 19–22)
+19. Section transition
+20. The problem: models can't see your data
+21. How Foundry IQ works (diagram)
+22. Better answers, built once
 
-### Section 6 — Capability 4: Trust & Enterprise Readiness (Slides 20–24)
-20. Section transition
-21. Five pillars of trust (overview)
-22. Evaluate and observe
-23. Keep it safe and secure
-24. Govern the whole fleet
+### Section 6 — Capability 4: Trust & Enterprise Readiness (Slides 23–27)
+23. Section transition
+24. Five pillars of trust (overview)
+25. Evaluate and observe
+26. Keep it safe and secure
+27. Govern the whole fleet
 
-### Section 7 — Closing (Slides 25–27)
-25. Recap: four capabilities, one platform
-26. The bottom line
-27. Q&A
+### Section 7 — Closing (Slides 28–30)
+28. Recap: four capabilities, one platform
+29. The bottom line
+30. Q&A
 
 ---
 
@@ -483,13 +486,150 @@ The recommended engine is the **Microsoft Agent Framework** — an open-source S
 
 Emphasize **human-in-the-loop** for the BDMs: agents can prepare work, but a person approves before anything consequential is sent or changed. That's what makes it safe to automate real processes in regulated settings.
 
-Transition: That's the theory — here's a real bank running it in production.
+Transition: Whether it's one agent or a whole team of them, they all stand on the same enterprise foundation — so let's look at what every agent gets for free.
 
 Sources: research/2026-07-13-msdocs-foundry-agent-service-tools.md
 
 ---
 
-<!-- Slide 15 | Section: Agents & Tools | Type: quote -->
+<!-- Slide 15 | Section: Agents & Tools | Type: boxes | Visual: hand-craft -->
+
+# Enterprise-grade by default
+
+Every Foundry agent inherits the same enterprise foundations — with no extra work.
+
+```
+ ┌──────────────────────┐  ┌──────────────────────┐  ┌──────────────────────┐
+ │     OWN IDENTITY     │  │  PRIVATE NETWORKING  │  │    ACCESS CONTROL    │
+ │ a dedicated Microsoft│  │ runs inside your own │  │ role-based access    │
+ │ Entra identity per   │  │ Azure virtual network│  │ control (RBAC) sets  │
+ │ agent — scoped       │  │ (bring-your-own VNet;│  │ who can create,      │
+ │ access, no shared    │  │ isolated per-session │  │ invoke, and manage   │
+ │ keys                 │  │ sandboxes)           │  │ agents               │
+ └──────────────────────┘  └──────────────────────┘  └──────────────────────┘
+ ┌──────────────────────┐  ┌──────────────────────┐  ┌──────────────────────┐
+ │    CONTENT SAFETY    │  │    OBSERVABILITY     │  │        REACH         │
+ │ built-in filters help│  │ end-to-end tracing   │  │ publish to Microsoft │
+ │ block harmful content│  │ of every decision    │  │ 365 Copilot and Teams│
+ │ and prompt-injection,│  │ the agent makes      │  │ in a few clicks      │
+ │ incl. cross-prompt   │  │                      │  │                      │
+ │ injection (XPIA)     │  │                      │  │                      │
+ └──────────────────────┘  └──────────────────────┘  └──────────────────────┘
+```
+
+Enterprise-readiness isn't bolted on later — it's the starting point, so agents are production-ready from day one.
+
+**Speaker Notes:**
+Every agent built on Foundry Agent Service inherits enterprise-grade infrastructure automatically — you don't add these things later.
+
+Walk the six quickly. **Own identity** — each agent gets a dedicated Microsoft Entra identity (Entra is Microsoft's identity service), so it authenticates with scoped, least-privilege access instead of shared keys or embedded secrets. **Private networking** — agents run inside your own Azure virtual network (VNet); hosted agents support bring-your-own VNet with per-session sandboxes isolated at the VM level. **Access control** — role-based access control (RBAC) governs who can create, invoke, and manage agents. **Content safety** — integrated filters help block harmful content and prompt-injection, including cross-prompt injection (XPIA), where malicious instructions are hidden in content the agent reads. **Observability** — end-to-end tracing lets you "see every decision your agent makes." **Reach** — publish finished agents into Microsoft 365 Copilot and Teams in a few clicks, putting them where people already work.
+
+BDM takeaway: because these foundations are inherited, teams don't spend weeks bolting on security, networking, and monitoring — production-readiness is the starting line, which cuts both risk and time to production.
+
+Transition: Those foundations come for free. On top of them, here's the short checklist every team should apply when building an agent you can actually trust.
+
+Sources: research/2026-07-13-msdocs-foundry-agent-service-tools.md, research/2026-07-13-msdocs-foundry-overview-model-catalog.md
+
+---
+
+<!-- Slide 16 | Section: Agents & Tools | Type: list | Visual: hand-craft -->
+
+# Building agents you can trust
+
+Layer these safeguards so automation never runs unchecked — defense in depth.
+
+```
+   ┌──────────────────────────────────────────────────────────┐
+   │ 1  SCOPED IDENTITY                                         │
+   │    least-privilege Entra identity per agent; no shared keys│
+   ├──────────────────────────────────────────────────────────┤
+   │ 2  APPROVAL GATES + ALLOW-LISTS                            │
+   │    human approval for high-risk actions (tools that write  │
+   │    or change data); restrict to an allow-list of tools     │
+   ├──────────────────────────────────────────────────────────┤
+   │ 3  HUMAN-IN-THE-LOOP                                        │
+   │    a person approves consequential steps                   │
+   ├──────────────────────────────────────────────────────────┤
+   │ 4  GUARDRAILS ON THE AGENT                                  │
+   │    scan the prompt, the tool call, the tool response, and  │
+   │    the final answer                                        │
+   ├──────────────────────────────────────────────────────────┤
+   │ 5  TEST BEFORE YOU SHIP                                     │
+   │    AI Red Teaming Agent + evaluations (task adherence,     │
+   │    tool-call accuracy)                                      │
+   ├──────────────────────────────────────────────────────────┤
+   │ 6  TRACE EVERY DECISION                                     │
+   │    full observability of what the agent did, and why       │
+   └──────────────────────────────────────────────────────────┘
+```
+
+The payoff: automate real work without losing control — the difference between a demo and something you run in production.
+
+**Speaker Notes:**
+This is Microsoft's practical guidance for taking an agent from prototype to production responsibly. Frame it as "defense in depth" — no single control is enough, so you layer them.
+
+Go through the list. (1) **Scoped identity** — give each agent its own least-privilege Entra identity; never shared keys. (2) **Approval gates and allow-lists** — Microsoft recommends requiring human approval for high-risk operations, "especially tools that write data or change resources," and restricting the agent to an allow-list of tools. (3) **Human-in-the-loop** — ensure a person can intervene, correct, or override, "especially when those decisions have safety or legal implications." (4) **Guardrails on the agent** — scan at every step: the prompt, the proposed tool call, the tool's response, and the final answer (we unpack this on the next slide). (5) **Test before you ship** — run the AI Red Teaming Agent and evaluations like task adherence and tool-call accuracy before publishing. (6) **Trace every decision** — keep full observability so you can reconstruct what the agent did and why.
+
+One pitfall worth naming: don't overload a single agent with too many tools — Microsoft warns its guidance can become "fragmented, outdated, or misleading." Fewer, well-chosen tools are safer.
+
+BDM takeaway: this checklist is exactly what lets a regulated business automate real work without losing control.
+
+Transition: One item on that list protects you at every step and deserves a closer look — guardrails.
+
+Sources: research/2026-07-13-msdocs-foundry-agent-service-tools.md, research/2026-07-13-msdocs-foundry-trust-enterprise-readiness.md
+
+---
+
+<!-- Slide 17 | Section: Agents & Tools | Type: diagram | Visual: hand-craft -->
+
+# Guardrails: safe by default, tunable to your policy
+
+A guardrail defines a risk to detect, where to scan for it, and what to do when it's found.
+
+```
+  SAFE BY DEFAULT: every model gets Microsoft's default guardrail
+  (Microsoft.DefaultV2) — protection with zero setup.
+
+  WHERE THEY SCAN — four points along the flow:
+
+    user input ──▶ tool call ──▶ tool response ──▶ final output
+                   └──── agents only (preview) ────┘
+
+  WHAT THEY CATCH                      HOW THEY WORK
+  ───────────────                      ─────────────
+  • hate · sexual · self-harm ·        content filters,
+    violence (Off/Low/Med/High)        prompt shields, and
+  • jailbreak & cross-prompt           abuse detection
+    injection (XPIA)                   (Azure AI Content
+  • personal data (PII), protected     Safety classifiers)
+    material, off-task answers
+
+  TUNABLE: set each severity to your policy — applies to
+  models and agents (agent guardrails in preview).
+```
+
+Safe by default, configurable to your standards, and blocking in real time — protecting your brand, your users, and your legal exposure.
+
+**Speaker Notes:**
+Define it plainly: a guardrail is a named set of controls, and each control "defines a risk to be detected, intervention points to scan for the risk, and the response action to take."
+
+**Safe by default** is the headline for a nervous audience: every model is assigned Microsoft's default guardrail (Microsoft.DefaultV2), so there's protection with zero configuration.
+
+**Where they scan** — four intervention points: the user's input, the proposed tool call, the tool's response, and the final output. The two middle points (tool call and tool response) are agent-specific and currently in preview — mention that lightly.
+
+**What they catch** — the four harm categories (hate, sexual, self-harm, violence), each tunable Off/Low/Medium/High; plus jailbreak (prompt attacks) and cross-prompt injection (XPIA); plus personally identifiable information (PII), protected or copyrighted material, and off-task answers (the task-adherence control). The classifiers come from Azure AI Content Safety — content filters, prompt shields, and abuse detection.
+
+**Tunable** is the message for policy owners: you set the severity thresholds to match your own standards, and guardrails apply to both models and agents (agent guardrails are in preview).
+
+BDM takeaway: this is brand, user, and legal protection that's on from day one, adjustable to your risk appetite, and enforced in real time rather than after the fact.
+
+Transition: That's the platform in theory — here's a real bank running all of it in production.
+
+Sources: research/2026-07-13-msdocs-foundry-trust-enterprise-readiness.md
+
+---
+
+<!-- Slide 18 | Section: Agents & Tools | Type: quote -->
 
 # Success Story: Commerzbank's "Ava"
 
@@ -514,7 +654,7 @@ Sources: research/2026-07-13-web-foundry-business-value-outcomes.md
 
 ---
 
-<!-- Slide 16 | Section: Foundry IQ | Type: transition -->
+<!-- Slide 19 | Section: Foundry IQ | Type: transition -->
 
 # Capability 3 — Foundry IQ (Knowledge & Grounding)
 
@@ -531,7 +671,7 @@ Sources: research/2026-07-13-msdocs-foundry-iq-knowledge.md
 
 ---
 
-<!-- Slide 17 | Section: Foundry IQ | Type: single-point -->
+<!-- Slide 20 | Section: Foundry IQ | Type: single-point -->
 
 # The problem: models can't see your data
 
@@ -552,7 +692,7 @@ Sources: research/2026-07-13-msdocs-foundry-iq-knowledge.md, research/2026-07-13
 
 ---
 
-<!-- Slide 18 | Section: Foundry IQ | Type: diagram | Visual: hand-craft -->
+<!-- Slide 21 | Section: Foundry IQ | Type: diagram | Visual: hand-craft -->
 
 # How Foundry IQ works
 
@@ -596,7 +736,7 @@ Sources: research/2026-07-13-msdocs-foundry-iq-knowledge.md
 
 ---
 
-<!-- Slide 19 | Section: Foundry IQ | Type: boxes | Visual: hand-craft -->
+<!-- Slide 22 | Section: Foundry IQ | Type: boxes | Visual: hand-craft -->
 
 # Better answers, built once
 
@@ -641,7 +781,7 @@ Sources: research/2026-07-13-msdocs-foundry-iq-knowledge.md, research/2026-07-13
 
 ---
 
-<!-- Slide 20 | Section: Trust & Enterprise Readiness | Type: transition -->
+<!-- Slide 23 | Section: Trust & Enterprise Readiness | Type: transition -->
 
 # Capability 4 — Trust & Enterprise Readiness
 
@@ -658,7 +798,7 @@ Sources: research/2026-07-13-msdocs-foundry-trust-enterprise-readiness.md
 
 ---
 
-<!-- Slide 21 | Section: Trust & Enterprise Readiness | Type: boxes | Visual: hand-craft -->
+<!-- Slide 24 | Section: Trust & Enterprise Readiness | Type: boxes | Visual: hand-craft -->
 
 # Five pillars of trust
 
@@ -690,7 +830,7 @@ Sources: research/2026-07-13-msdocs-foundry-trust-enterprise-readiness.md
 
 ---
 
-<!-- Slide 22 | Section: Trust & Enterprise Readiness | Type: comparison | Visual: hand-craft -->
+<!-- Slide 25 | Section: Trust & Enterprise Readiness | Type: comparison | Visual: hand-craft -->
 
 # Evaluate and observe
 
@@ -732,32 +872,32 @@ Sources: research/2026-07-13-msdocs-foundry-trust-enterprise-readiness.md, resea
 
 ---
 
-<!-- Slide 23 | Section: Trust & Enterprise Readiness | Type: boxes | Visual: hand-craft -->
+<!-- Slide 26 | Section: Trust & Enterprise Readiness | Type: boxes | Visual: hand-craft -->
 
 # Keep it safe and secure
 
 ```
  ┌─────────────────────────────┐  ┌─────────────────────────────┐
  │           SAFETY            │  │          SECURITY            │
- │ Guardrails scan inputs,     │  │ Identity, not shared keys:   │
- │ tool calls & outputs; block │  │ Microsoft Entra ID + role-   │
- │ harmful content in real     │  │ based access control (RBAC). │
- │ time (on by default).       │  │                              │
- │                             │  │ "Your data is your data" —   │
- │ AI Red Teaming Agent tests  │  │ not used to train others'    │
- │ for weaknesses BEFORE        │  │ models. Encrypted; stays in  │
- │ attackers find them.        │  │ your region; private network.│
+ │ The AI Red Teaming Agent    │  │ Identity, not shared keys:   │
+ │ proactively finds           │  │ Microsoft Entra ID + role-   │
+ │ weaknesses BEFORE an        │  │ based access control (RBAC). │
+ │ attacker or customer        │  │                              │
+ │ does.                       │  │ "Your data is your data" —   │
+ │                             │  │ not used to train others'    │
+ │                             │  │ models. Encrypted; stays in  │
+ │                             │  │ your region; private network.│
  └─────────────────────────────┘  └─────────────────────────────┘
 ```
 
+Guardrails (from the Agents section) apply here too — safety spans models and agents.
+
 **Speaker Notes:**
-**Safety** works at two levels.
+This is the platform-level view of safety and security — the data-protection and proactive-testing half of trust.
 
-**Guardrails** are content controls that scan at defined points — the user's prompt, a tool call, a tool response, and the final output — and block harmful content (hate, violence, self-harm, jailbreak attempts, and more).
+**Safety** here is a callback: we detailed guardrails in the Agents section (slide 17). The point to reinforce is that guardrails aren't agent-only — the same content controls also protect core models, so safety spans everything you run on Foundry.
 
-Models get a default guardrail, so there's safety out of the box.
-
-The **AI Red Teaming Agent** proactively simulates attacks (built on Microsoft's open-source PyRIT framework) to find weaknesses before a customer or attacker does — Microsoft calls this "shifting left" from costly reactive incidents.
+The **AI Red Teaming Agent** is the proactive half: it simulates attacks (built on Microsoft's open-source PyRIT framework) and scores the results with an Attack Success Rate, producing a scorecard that indicates whether the system is ready to deploy — catching weaknesses before a customer or attacker does. Microsoft calls this "shifting left" from costly reactive incidents to proactive testing before deployment.
 
 **Security** answers the questions a Chief Information Security Officer (CISO) asks first.
 
@@ -775,7 +915,7 @@ Sources: research/2026-07-13-msdocs-foundry-trust-enterprise-readiness.md
 
 ---
 
-<!-- Slide 24 | Section: Trust & Enterprise Readiness | Type: single-point -->
+<!-- Slide 27 | Section: Trust & Enterprise Readiness | Type: single-point -->
 
 # Govern the whole fleet
 
@@ -796,7 +936,7 @@ Sources: research/2026-07-13-msdocs-foundry-trust-enterprise-readiness.md, resea
 
 ---
 
-<!-- Slide 25 | Section: Closing | Type: recap | Visual: hand-craft -->
+<!-- Slide 28 | Section: Closing | Type: recap | Visual: hand-craft -->
 
 # Recap: four capabilities, one platform
 
@@ -827,7 +967,7 @@ Sources: research/2026-07-13-msdocs-foundry-overview-model-catalog.md, research/
 
 ---
 
-<!-- Slide 26 | Section: Closing | Type: single-point -->
+<!-- Slide 29 | Section: Closing | Type: single-point -->
 
 # The bottom line
 
@@ -846,7 +986,7 @@ Sources: research/2026-07-13-msdocs-foundry-trust-enterprise-readiness.md, resea
 
 ---
 
-<!-- Slide 27 | Section: Closing | Type: title-slide -->
+<!-- Slide 30 | Section: Closing | Type: title-slide -->
 
 # Questions?
 

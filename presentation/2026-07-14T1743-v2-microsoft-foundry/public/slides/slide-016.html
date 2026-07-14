@@ -1,0 +1,60 @@
+<!-- HAND-CRAFTED OVERRIDE — do not regenerate -->
+<article class="slide" data-number="16" data-type="list" data-section="Agents &amp; Tools">
+  <div class="slide-bg"></div>
+  <div class="slide-content">
+    <h1 class="slide-title">Building agents you can trust</h1>
+    <p class="slide-lead">Layer these safeguards so automation never runs unchecked &mdash; <strong>defense in depth.</strong></p>
+    <div class="trust-checklist">
+      <div class="trust-item">
+        <div class="trust-num">1</div>
+        <div class="trust-text">
+          <div class="trust-label">Scoped identity</div>
+          <div class="trust-desc">Least-privilege Entra identity per agent; no shared keys.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">2</div>
+        <div class="trust-text">
+          <div class="trust-label">Approval gates + allow-lists</div>
+          <div class="trust-desc">Human approval for high-risk actions (tools that write or change data); restrict to an allow-list of tools.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">3</div>
+        <div class="trust-text">
+          <div class="trust-label">Human-in-the-loop</div>
+          <div class="trust-desc">A person approves consequential steps.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">4</div>
+        <div class="trust-text">
+          <div class="trust-label">Guardrails on the agent</div>
+          <div class="trust-desc">Scan the prompt, the tool call, the tool response, and the final answer.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">5</div>
+        <div class="trust-text">
+          <div class="trust-label">Test before you ship</div>
+          <div class="trust-desc">AI Red Teaming Agent + evaluations (task adherence, tool-call accuracy).</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">6</div>
+        <div class="trust-text">
+          <div class="trust-label">Trace every decision</div>
+          <div class="trust-desc">Full observability of what the agent did, and why.</div>
+        </div>
+      </div>
+    </div>
+    <div class="callout">The payoff: <strong>automate real work without losing control</strong> &mdash; the difference between a demo and something you run in production.</div>
+  </div>
+  <aside class="speaker-notes" hidden>
+    <p>This is Microsoft's practical guidance for taking an agent from prototype to production responsibly. Frame it as "defense in depth" &mdash; no single control is enough, so you layer them.</p>
+    <p>Go through the list. (1) <strong>Scoped identity</strong> &mdash; give each agent its own least-privilege Entra identity; never shared keys. (2) <strong>Approval gates and allow-lists</strong> &mdash; Microsoft recommends requiring human approval for high-risk operations, "especially tools that write data or change resources," and restricting the agent to an allow-list of tools. (3) <strong>Human-in-the-loop</strong> &mdash; ensure a person can intervene, correct, or override, "especially when those decisions have safety or legal implications." (4) <strong>Guardrails on the agent</strong> &mdash; scan at every step: the prompt, the proposed tool call, the tool's response, and the final answer (we unpack this on the next slide). (5) <strong>Test before you ship</strong> &mdash; run the AI Red Teaming Agent and evaluations like task adherence and tool-call accuracy before publishing. (6) <strong>Trace every decision</strong> &mdash; keep full observability so you can reconstruct what the agent did and why.</p>
+    <p>One pitfall worth naming: don't overload a single agent with too many tools &mdash; Microsoft warns its guidance can become "fragmented, outdated, or misleading." Fewer, well-chosen tools are safer.</p>
+    <p>BDM takeaway: this checklist is exactly what lets a regulated business automate real work without losing control.</p>
+    <p><strong>Transition:</strong> One item on that list protects you at every step and deserves a closer look &mdash; guardrails.</p>
+  </aside>
+</article>

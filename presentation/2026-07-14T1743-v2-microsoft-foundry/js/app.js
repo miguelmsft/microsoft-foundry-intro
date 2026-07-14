@@ -4,7 +4,7 @@ import { initAdmin, getStoredTheme, applyTheme } from './admin.js';
 // ============================================================
 //  CONFIG
 // ============================================================
-const TOTAL_SLIDES = 27;
+const TOTAL_SLIDES = 30;
 const DESIGN_WIDTH = 1920;
 const DESIGN_HEIGHT = 1080;
 const TRANSITION_COOLDOWN = 80;

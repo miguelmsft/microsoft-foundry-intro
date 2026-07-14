@@ -1,0 +1,52 @@
+<!-- HAND-CRAFTED OVERRIDE — do not regenerate -->
+<article class="slide" data-number="17" data-type="diagram" data-section="Agents &amp; Tools">
+  <div class="slide-bg"></div>
+  <div class="slide-content">
+    <h1 class="slide-title">Guardrails: safe by default, tunable to your policy</h1>
+    <p class="slide-lead">A guardrail defines a <strong>risk to detect</strong>, <strong>where to scan</strong> for it, and <strong>what to do</strong> when it's found.</p>
+    <div class="callout">
+      <span class="router-tag">Safe by default</span>
+      Every model gets Microsoft's default guardrail (<strong>Microsoft.DefaultV2</strong>) &mdash; protection with zero setup.
+    </div>
+    <div class="guardrail-flow">
+      <div class="gf-step">User input</div>
+      <span class="gf-arrow">&rarr;</span>
+      <div class="gf-step gf-agent">Tool call</div>
+      <span class="gf-arrow">&rarr;</span>
+      <div class="gf-step gf-agent">Tool response</div>
+      <span class="gf-arrow">&rarr;</span>
+      <div class="gf-step">Final output</div>
+    </div>
+    <div class="gf-caption">Four intervention points &mdash; the middle two are <strong>agents only (preview)</strong></div>
+    <div class="compare-grid">
+      <div class="compare-col tone-accent">
+        <div class="compare-eyebrow">What they catch</div>
+        <ul class="compare-list">
+          <li>Hate &middot; sexual &middot; self-harm &middot; violence &mdash; each set <strong>Off / Low / Med / High</strong></li>
+          <li>Jailbreak &amp; cross-prompt injection (XPIA)</li>
+          <li>Personal data (PII), protected material, off-task answers</li>
+        </ul>
+      </div>
+      <div class="compare-col tone-accent">
+        <div class="compare-eyebrow">How they work</div>
+        <ul class="compare-list">
+          <li>Content filters, prompt shields, and abuse detection</li>
+          <li>Powered by <strong>Azure AI Content Safety</strong> classifiers</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">
+      <span class="router-tag">Tunable</span>
+      Set each severity to your policy &mdash; applies to models and agents (agent guardrails in preview). Safe by default, blocking in <strong>real time</strong>, protecting your brand, users, and legal exposure.
+    </div>
+  </div>
+  <aside class="speaker-notes" hidden>
+    <p>Define it plainly: a guardrail is a named set of controls, and each control "defines a risk to be detected, intervention points to scan for the risk, and the response action to take."</p>
+    <p><strong>Safe by default</strong> is the headline for a nervous audience: every model is assigned Microsoft's default guardrail (Microsoft.DefaultV2), so there's protection with zero configuration.</p>
+    <p><strong>Where they scan</strong> &mdash; four intervention points: the user's input, the proposed tool call, the tool's response, and the final output. The two middle points (tool call and tool response) are agent-specific and currently in preview &mdash; mention that lightly.</p>
+    <p><strong>What they catch</strong> &mdash; the four harm categories (hate, sexual, self-harm, violence), each tunable Off/Low/Medium/High; plus jailbreak (prompt attacks) and cross-prompt injection (XPIA); plus personally identifiable information (PII), protected or copyrighted material, and off-task answers (the task-adherence control). The classifiers come from Azure AI Content Safety &mdash; content filters, prompt shields, and abuse detection.</p>
+    <p><strong>Tunable</strong> is the message for policy owners: you set the severity thresholds to match your own standards, and guardrails apply to both models and agents (agent guardrails are in preview).</p>
+    <p>BDM takeaway: this is brand, user, and legal protection that's on from day one, adjustable to your risk appetite, and enforced in real time rather than after the fact.</p>
+    <p><strong>Transition:</strong> That's the platform in theory &mdash; here's a real bank running all of it in production.</p>
+  </aside>
+</article>
